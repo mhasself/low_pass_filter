@@ -1,0 +1,26 @@
+What this is
+------------
+
+This code implements a low-pass filter similar to the MCE's
+(e-mode.phas.ubc.ca/mcewiki) 4-poll readout filter.  This should be a
+very good imitation aside from the use of 8-bit based datatypes
+(int32_t and int64_t) instead of the tailored accumulators in MCE
+firmware.
+
+The goal was to time such operations on a x86 CPU... on my old dual
+core (4 thread) AMD, this can (just barely) keep up with 12000
+channels at 30 kHz.
+
+
+Running the test
+----------------
+
+To generate the transfer function plots:
+
+  make test
+
+To run the timing test (which passes data through numpy C interface):
+
+  make test_np
+  python test_np_filt.py
+

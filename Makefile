@@ -4,8 +4,8 @@ all: test_np test_fs
 
 test_fs: test_fs.o lo_pass.o
 
-test: lo_pass test.py
-	python2 test.py
+test: test_fs test_fs.py
+	python2 test_fs.py
 
 test_np: wrapper.c lo_pass.c
 	-rm -r build/

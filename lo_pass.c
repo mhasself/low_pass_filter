@@ -20,8 +20,8 @@ void filter_data(filtbank *bank, int32_t *input, int32_t *output, int n_samp)
 #pragma omp parallel for shared(input, output)
     for (int ic=0; ic<bank->n_chan; ic++) {
         int64_t *w = bank->w + ic*2;
-        int32_t *src = input  + ic*bank->n_chan;
-        int32_t *dst = output + ic*bank->n_chan;
+        int32_t *src = input  + ic*n_samp;
+        int32_t *dst = output + ic*n_samp;
         for (int i=0; i<n_samp; i++) {
             int64_t c = (-w[1] * b[0] + w[0] * b[1]) >> bank->par->b_bits;
             int64_t W = (*(src++) << bank->par->p_bits) - c;
@@ -37,8 +37,8 @@ void multi_filter_data(filtbank *banks, int n_bank, int32_t *input, int32_t *out
 {
 //#pragma omp parallel for shared(input, output)
     for (int ic=0; ic<banks[0].n_chan; ic++) {
-        int32_t *src = input  + ic*banks[0].n_chan;
-        int32_t *dst = output + ic*banks[0].n_chan;
+        int32_t *src = input  + ic*n_samp;
+        int32_t *dst = output + ic*n_samp;
         for (int i=0; i<n_samp; i++) {
             int32_t x = *(src++);
             for (int ib=0; ib<n_bank; ib++) {

@@ -8,6 +8,12 @@ int main(int argc, char **argv) {
 
     filtpar *pars = mce_filter();
 
+    if (argc != 5) {
+        printf("This program requires exactly 4 arguments.\n");
+        printf("  n_chan  n_samp  input_file output_file\n");
+        return 1;
+    }
+
     /* Load the input data */
     int n_chan = atoi(argv[1]);
     int n_samp = atoi(argv[2]);

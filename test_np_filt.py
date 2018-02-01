@@ -4,7 +4,7 @@ import numpy as np
 import npfilt
 
 # On feynman, 8 threads, this settles down to 0.33 seconds per buffer.
-n_chan = 1024*12
+n_chan = 1024*6
 n_samp = 30000
 
 print 'Creating %s samples of gaussian white noise...' % n_samp
