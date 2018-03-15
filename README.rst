@@ -26,7 +26,7 @@ The output from the numpy test is like this::
   Creating 7500 samples of gaussian white noise...
   Broadcasting to 12288 channels.
   Filtering.
-  Iter#    Time  Mean-process-time   Gigasamples/s
+  Iter#    Time  Mean-process-time   Gigabytes/s
      4    0.966      0.9657            1.5270
      8    1.804      0.9019            1.6350
     12    2.634      0.8780            1.6795

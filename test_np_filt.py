@@ -29,7 +29,7 @@ n_iter = 0
 n_data = 0
 while True:
     if n_iter % 100 == 0:
-        print('Iter#    Time  Mean-process-time   Gigasamples/s')
+        print('Iter#    Time  Mean-process-time   Gigabytes/s')
     npfilt.apply_filter(dat0, dat1, 0)
     n_iter += 1
     n_data += n_payload
